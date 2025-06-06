@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
+    font-family: "Poppins";
+    font-weight: bold;
+}
+
+.container {
+    text-align: center;
+}
+
+.music-button {
+    position: relative;
+    padding: 20px 40px;
+    font-size: 1.2em;
+    color: #fff;
+    background: linear-gradient(45deg, #2c3e50, #34495e);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.music-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(45deg, #34495e, #2c3e50);
+}
+
+.music-button:active {
+    transform: translateY(1px);
+}
+
+.music-waves {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 3px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.music-waves span {
+    width: 3px;
+    height: 15px;
+    background-color: #3498db;
+    border-radius: 3px;
+    animation: wave 1s ease-in-out infinite;
+}
+
+.music-waves span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.music-waves span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.music-waves span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.music-button.playing .music-waves {
+    opacity: 1;
+}
+
+.music-button.playing .button-text {
+    opacity: 0;
+}
+
+.button-text {
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(2);
+    }
+}
+
+/* Add a subtle pulse animation to the button when music is playing */
+.music-button.playing {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+    }
+} 
+
+#musicButton{
+  font-family: 'Poppins';
+  font-weight: bold;
+}
