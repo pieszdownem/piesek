@@ -1,16 +1,62 @@
-const button = document.getElementById('musicButton');
-        const music = document.getElementById('backgroundMusic');
-        let isPlaying = false;
+document.addEventListener('DOMContentLoaded', function() {
+    const musicButton = document.getElementById('musicButton');
+    const actionButton = document.getElementById('actionButton');
+    const backgroundMusic = document.getElementById('backgroundMusic');
+    const popupOverlay = document.getElementById('popupOverlay');
+    const emojiDisplay = document.getElementById('emojiDisplay');
+    const emoji = document.getElementById('emoji');
+    const countdown = document.getElementById('countdown');
+    const noButton = document.getElementById('noButton');
+    const yesButton = document.getElementById('yesButton');
+    const mainContent = document.querySelector('.main-content');
 
-        button.addEventListener('click', () => {
-            if (isPlaying) {
-                music.pause();
-                button.classList.remove('playing');
-                button.querySelector('.button-text').textContent = 'Turn On Music';
-            } else {
-                music.play();
-                button.classList.add('playing');
-                button.querySelector('.button-text').textContent = 'Turn Off Music';
+    let isPlaying = false;
+
+    musicButton.addEventListener('click', function() {
+        if (isPlaying) {
+            backgroundMusic.pause();
+            musicButton.classList.remove('playing');
+        } else {
+            backgroundMusic.play();
+            musicButton.classList.add('playing');
+        }
+        isPlaying = !isPlaying;
+    });
+
+    actionButton.addEventListener('click', function() {
+        popupOverlay.style.display = 'flex';
+    });
+
+    noButton.addEventListener('click', function() {
+        mainContent.style.display = 'none';
+        popupOverlay.style.display = 'none';
+        emojiDisplay.style.display = 'flex';
+        emoji.textContent = '😠';
+        
+        let timeLeft = 3;
+        countdown.textContent = `Your computer will explode in ${timeLeft} seconds`;
+        
+        const countdownInterval = setInterval(() => {
+            timeLeft--;
+            countdown.textContent = `Your computer will explode in ${timeLeft} seconds`;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdownInterval);
+                emoji.style.display = 'none';
+                countdown.style.display = 'none';
+                const gif = document.createElement('img');
+                gif.src = 'YVz6fUT.gif';
+                gif.style.maxWidth = '100%';
+                gif.style.maxHeight = '80vh';
+                emojiDisplay.appendChild(gif);
             }
-            isPlaying = !isPlaying;
-        });
+        }, 1000);
+    });
+
+    yesButton.addEventListener('click', function() {
+        mainContent.style.display = 'none';
+        popupOverlay.style.display = 'none';
+        emojiDisplay.style.display = 'flex';
+        emoji.textContent = '😊';
+    });
+});
