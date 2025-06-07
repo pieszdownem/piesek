@@ -7,28 +7,51 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <div id="container"> 
-  <video id="film" autoplay muted loop>
-    <source src="upo_pies.mp4">
-  </video>
-
-  <div class="container">
-        <button id="musicButton" class="music-button">
-            <span class="button-text">Muzyczka</span>
-            <div class="music-waves">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-        <audio id="backgroundMusic" loop>
-            <source src="ssstwitter.com_1748019250179.mp3" type="audio/mpeg" loop>
-        </audio>
+  <div class="main-content">
+    <h1 class="neon-title">Jakis kurwa pies z downem</h1>
+    
+    <div id="container"> 
+      <div class="video-frame frame-top-right"></div>
+      <div class="video-frame frame-bottom-left"></div>
+      <video id="film" autoplay muted loop>
+        <source src="upo_pies.mp4">
+      </video>
     </div>
 
-  <script src="script.js">
-  </script>
+    <div class="container">
+      <button id="musicButton" class="music-button">
+        <span class="button-text">Muzyczka</span>
+        <div class="music-waves">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+      <button id="actionButton" class="action-button">
+        <span class="button-text">Kliknij jeśli nie jesteś pizdą</span>
+      </button>
+      <audio id="backgroundMusic" loop>
+        <source src="ssstwitter.com_1748019250179.mp3" type="audio/mpeg" loop>
+      </audio>
+    </div>
+  </div>
 
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup">
+      <h2 style="color: white;">Fajny pies?</h2>
+      <div class="popup-buttons">
+        <button class="popup-button" id="noButton">Nie</button>
+        <button class="popup-button" id="yesButton">Tak</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="emoji-display" id="emojiDisplay">
+    <div id="emoji">😊</div>
+    <div class="countdown" id="countdown"></div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
